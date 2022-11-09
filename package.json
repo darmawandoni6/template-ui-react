@@ -1,5 +1,5 @@
 {
-  "name": "template-react",
+  "name": "@darmawandoni6/template-react",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,6 +12,9 @@
   },
   "keywords": [],
   "author": "",
+  "repository": {
+    "url": "https://github.com/darmawandoni6/ui-kit"
+  },
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.8",
