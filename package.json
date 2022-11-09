@@ -11,7 +11,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "darmawandoni6@gmail.com",
+  "repository": {
+    "url": "https://github.com/darmawandoni6/tempalte-react"
+  },
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.8",
