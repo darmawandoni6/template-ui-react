@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@features/*": ["src/features/*"],
+      "@views/*": ["src/views/*"],
+      "@config/*": ["src/config/*"],
+      "@reducers/*": ["src/reducers/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@pages/*": ["src/pages/*"],
+      "@uikit/*": ["src/uikit/*"]
+    }
+  }
+}
