@@ -1,13 +1,28 @@
-import Head from "next/head";
-import "../styles/globals.css";
+import { useStore } from '@reducers/store';
+import Head from 'next/head';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
+import { Provider } from 'react-redux';
+
+NProgress.configure({ showSpinner: true });
+
+Router.onRouteChangeStart = () => NProgress.start();
+Router.onRouteChangeComplete = () => NProgress.done();
+
+Router.onRouteChangeError = () => NProgress.done();
 
 function MyApp({ Component, pageProps }) {
+  const store = useStore(pageProps.initialReduxState);
+
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Next Template</title>
       </Head>
-      <Component {...pageProps} />
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }
