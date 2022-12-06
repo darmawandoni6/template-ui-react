@@ -1,6 +1,8 @@
-import { useStore } from '@reducers/store';
 import Head from 'next/head';
 import Router from 'next/router';
+
+import '@assets/styles/main.scss';
+import { useStore } from '@reducers/store';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import { Provider } from 'react-redux';
