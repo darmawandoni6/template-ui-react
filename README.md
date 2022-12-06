@@ -2,15 +2,16 @@
 
 ## Quick Overview
 
-```sh
+```
 npx template-ui-react
-cd my-app
+cd {project name}
 npm install
 ```
 
 ## Template
 
 - Next JS
+- React Webpack
 
 ## Description
 
