@@ -10,7 +10,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "template react",
+    "react",
+    "ui kit react"
+  ],
   "author": "darmawandoni6@gmail.com",
   "repository": {
     "url": "https://github.com/darmawandoni6/tempalte-react"
