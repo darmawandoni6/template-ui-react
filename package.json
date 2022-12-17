@@ -22,6 +22,7 @@
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.8",
-    "inquirer": "^9.1.4"
+    "inquirer": "^9.1.4",
+    "validate-npm-package-name": "^5.0.0"
   }
 }
