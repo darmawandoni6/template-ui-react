@@ -4,10 +4,10 @@
     "paths": {
       "@assets/*": ["src/assets/*"],
       "@components/*": ["src/components/*"],
-      "@features/*": ["src/features/*"],
       "@config/*": ["src/config/*"],
       "@reducers/*": ["src/reducers/*"],
-      "@helpers/*": ["src/helpers/*"]
+      "@helpers/*": ["src/helpers/*"],
+      "@views/*": ["src/views/*"]
     }
   }
 }

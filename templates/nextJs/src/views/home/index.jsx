@@ -1,8 +1,19 @@
+import React, { useEffect } from 'react';
+
 import Image from 'next/image';
 
-import styles from '../Home.module.scss';
+import homeAction from '@reducers/home/home.action';
+import { useDispatch } from 'react-redux';
+
+import styles from './Home.module.scss';
 
 export default function Home() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(homeAction.getExample());
+  }, []);
+
   return (
     <div className={styles.container}>
       <main className={styles.main}>

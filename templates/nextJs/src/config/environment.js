@@ -1,3 +1,3 @@
 export const env = {
-  BASE_URL: '',
+  BASE_URL: 'https://jsonplaceholder.typicode.com',
 };

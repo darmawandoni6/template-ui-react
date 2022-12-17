@@ -1,7 +1,5 @@
-import Home from '@features/home/view';
+import Home from '@views/home';
 
-const index = () => {
-  return <Home />;
-};
+const index = () => <Home />;
 
 export default index;

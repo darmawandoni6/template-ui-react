@@ -1,10 +1,10 @@
-import { counterReducer, timerReducer } from '@features/home/data/home.reducer';
 import { combineReducers } from 'redux';
+
+import home from './home/home.reducer';
 
 // COMBINED REDUCERS
 const reducers = {
-  counter: counterReducer,
-  timer: timerReducer,
+  home,
 };
 
 export default combineReducers(reducers);

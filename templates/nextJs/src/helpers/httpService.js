@@ -14,11 +14,19 @@ httpService.interceptors.request.use(
 httpService.interceptors.response.use(
   (response) => response,
   (error) => {
-    const { data, status } = error.response;
-    if (data) {
-      Swal.fire(status.toString(), data.message, 'error');
+    if (error.response) {
+      const { data, status } = error.response;
+      if (data) {
+        Swal.fire(status.toString(), data.message, 'error').then(() => {
+          if (status === 401) {
+            window.location.href = '/';
+          }
+        });
+      }
     } else {
-      Swal.fire('Error', error.message, 'error');
+      Swal.fire('Error', error.message, 'error').then(() => {
+        if (error.code === 'ERR_NETWORK') window.location.href = '/';
+      });
     }
     return Promise.reject(error);
   },
