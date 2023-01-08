@@ -36,14 +36,22 @@ const QUESTIONS = [
 
 inquirer.prompt(QUESTIONS).then((answers) => {
   try {
-    const name = __dirname.match(/([^\/]*)\/*$/)[1];
-
     const projectChoice = answers["project-choice"];
-    const projectName =
-      answers["project-name"] === "." ? name : answers["project-name"];
+
+    let projectName = answers["project-name"];
     const templatePath = `${__dirname}/templates/${projectChoice}`;
-    fs.mkdirSync(`${CURR_DIR}/${projectName}`);
-    createDirectoryContents(templatePath, projectName);
+    let route = `${CURR_DIR}/${projectName}`;
+
+    if (answers["project-name"] === ".") {
+      const name = CURR_DIR.match(/([^\/]*)\/*$/)[1];
+      projectName = name;
+      route = CURR_DIR;
+    } else {
+      fs.mkdirSync(route);
+    }
+
+    createDirectoryContents(templatePath, projectName, route);
+
     console.log(`cd ${projectName} && npm install`);
   } catch (error) {
     console.log(error.message);
