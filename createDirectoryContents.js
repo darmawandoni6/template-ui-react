@@ -7,9 +7,8 @@ export function render(content, data) {
   return ejs.render(content, data);
 }
 
-const createDirectoryContents = (templatePath, newProjectPath) => {
+const createDirectoryContents = (templatePath, newProjectPath, route) => {
   const filesToCreate = fs.readdirSync(templatePath);
-
   filesToCreate.forEach((file) => {
     const origFilePath = `${templatePath}/${file}`;
 
@@ -23,15 +22,16 @@ const createDirectoryContents = (templatePath, newProjectPath) => {
       // Rename
       if (file === ".npmignore") file = ".gitignore";
 
-      const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
+      const writePath = `${route}/${file}`;
       fs.writeFileSync(writePath, contents, "utf8");
     } else if (stats.isDirectory()) {
-      fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
+      fs.mkdirSync(`${route}/${file}`, { recursive: true });
 
       // recursive call
       createDirectoryContents(
         `${templatePath}/${file}`,
-        `${newProjectPath}/${file}`
+        `${newProjectPath}/${file}`,
+        `${route}/${file}`
       );
     }
   });
