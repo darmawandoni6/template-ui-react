@@ -5,7 +5,7 @@ import Image from 'next/image';
 import homeAction from '@reducers/home/home.action';
 import { useDispatch } from 'react-redux';
 
-import styles from './Home.module.scss';
+import styles from './styles.module.scss';
 
 export default function Home() {
   const dispatch = useDispatch();

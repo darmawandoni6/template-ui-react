@@ -16,15 +16,14 @@ Router.onRouteChangeError = () => NProgress.done();
 
 function MyApp({ Component, pageProps }) {
   const store = useStore(pageProps.initialReduxState);
+  const getLayout = Component.getLayout || ((page) => page);
 
   return (
     <>
       <Head>
         <title>Next Template</title>
       </Head>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <Provider store={store}>{getLayout(<Component {...pageProps} />)}</Provider>
     </>
   );
 }
