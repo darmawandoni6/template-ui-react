@@ -1,4 +1,4 @@
-import Home from '@views/Main';
+import Home from '@views/Home';
 
 const index = () => <Home />;
 
