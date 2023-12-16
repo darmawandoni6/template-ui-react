@@ -11,6 +11,7 @@ npm install
 ## Template
 
 - Next JS
+- Next TS + Core UI
 - React Webpack
 
 ## Description
