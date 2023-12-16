@@ -1,0 +1,48 @@
+{
+  "name": "<%= projectName %>",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darmawandoni6/core-ui-next"
+  },
+  "license": "MIT",
+  "author": "https://github.com/darmawandoni6",
+  "dependencies": {
+    "@coreui/chartjs": "^4.0.0-rc.0",
+    "@coreui/coreui": "^5.0.0-rc.1",
+    "@coreui/icons": "^3.0.1",
+    "@coreui/icons-react": "^2.2.1",
+    "@coreui/react": "^5.0.0-rc.0",
+    "@coreui/react-chartjs": "^3.0.0-rc.0",
+    "@coreui/utils": "^2.0.2",
+    "@popperjs/core": "^2.11.8",
+    "chart.js": "^4.4.0",
+    "classnames": "^2.3.2",
+    "core-js": "^3.33.3",
+    "next": "13.5.6",
+    "react": "^18.2.0",
+    "react-app-polyfill": "^3.0.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.1.3",
+    "redux": "4.2.1",
+    "simplebar-react": "^3.2.4"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.6",
+    "prettier": "3.1.0",
+    "sass": "^1.69.5",
+    "typescript": "^5"
+  }
+}

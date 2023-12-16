@@ -1,0 +1,27 @@
+import { getIconsView } from '@assets/icons'
+import DocsCallout from '@components/DocsCallout'
+import { brandSet } from '@coreui/icons'
+import { CCard, CCardBody, CCardHeader, CRow } from '@coreui/react'
+import useIsClient from '@helpers/hooks/useIsClient'
+
+const Brands = () => {
+  const isClient = useIsClient()
+
+  return (
+    <>
+      <DocsCallout
+        name="CoreUI Brand Icons"
+        href="components/chart"
+        content="CoreUI Brand Icons. CoreUI Icons package is delivered with more than 1500 icons in multiple formats SVG, PNG, and Webfonts. CoreUI Icons are beautifully crafted symbols for common actions and items. You can use them in your digital products for web or mobile app."
+      />
+      <CCard className="mb-4">
+        <CCardHeader>Brand Icons</CCardHeader>
+        <CCardBody>
+          <CRow className="text-center">{getIconsView(brandSet, isClient)}</CRow>
+        </CCardBody>
+      </CCard>
+    </>
+  )
+}
+
+export default Brands
