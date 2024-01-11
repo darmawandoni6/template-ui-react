@@ -4,7 +4,13 @@
 
 ```
 npx template-ui-react@latest
+```
+
+```
 cd {project name}
+```
+
+```
 npm install
 ```
 
