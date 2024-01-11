@@ -24,6 +24,9 @@ const QUESTIONS = [
     message: "Project name:",
     default: "my-app",
     validate: (name) => {
+      if (name === ".") {
+        return true;
+      }
       const validation = validateNpmName(path.basename(path.resolve(name)));
       if (validation.valid) {
         return true;
@@ -42,9 +45,9 @@ inquirer.prompt(QUESTIONS).then((answers) => {
     const templatePath = `${__dirname}/templates/${projectChoice}`;
     let route = `${CURR_DIR}/${projectName}`;
 
-    if (answers["project-name"] === ".") {
+    if (projectName === ".") {
       const name = CURR_DIR.match(/([^\/]*)\/*$/)[1];
-      projectName = name;
+      projectName = name.toLowerCase();
       route = CURR_DIR;
     } else {
       fs.mkdirSync(route);
@@ -52,7 +55,11 @@ inquirer.prompt(QUESTIONS).then((answers) => {
 
     createDirectoryContents(templatePath, projectName, route);
 
-    console.log(`cd ${projectName} && npm install`);
+    let message = `cd ${projectName} && npm install`;
+    if (answers["project-name"] === ".") {
+      message = "npm install";
+    }
+    console.log(message);
   } catch (error) {
     console.log(error.message);
     return error.message;

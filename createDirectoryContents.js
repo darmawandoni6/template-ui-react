@@ -1,8 +1,6 @@
 import * as fs from "fs";
 import * as ejs from "ejs";
 
-const CURR_DIR = process.cwd();
-
 export function render(content, data) {
   return ejs.render(content, data);
 }
@@ -17,7 +15,9 @@ const createDirectoryContents = (templatePath, newProjectPath, route) => {
 
     if (stats.isFile()) {
       let contents = fs.readFileSync(origFilePath, "utf8");
-      contents = render(contents, { projectName: newProjectPath });
+
+      if (file === "package.json")
+        contents = render(contents, { projectName: newProjectPath });
 
       // Rename
       if (file === ".npmignore") file = ".gitignore";
@@ -31,7 +31,7 @@ const createDirectoryContents = (templatePath, newProjectPath, route) => {
       createDirectoryContents(
         `${templatePath}/${file}`,
         `${newProjectPath}/${file}`,
-        `${route}/${file}`
+        `${route}/${file}`,
       );
     }
   });
