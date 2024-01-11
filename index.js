@@ -34,6 +34,7 @@ const QUESTIONS = [
   },
 ];
 
+console.log({ QUESTIONS });
 inquirer.prompt(QUESTIONS).then((answers) => {
   try {
     const projectChoice = answers["project-choice"];
