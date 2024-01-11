@@ -3,7 +3,7 @@
 ## Quick Overview
 
 ```
-npx template-ui-react
+npx template-ui-react@latest
 cd {project name}
 npm install
 ```
