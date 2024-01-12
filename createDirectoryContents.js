@@ -12,9 +12,14 @@ const createDirectoryContents = (templatePath, newProjectPath, route) => {
 
     // get stats about the current file
     const stats = fs.statSync(origFilePath);
+    let opt = "utf8";
 
     if (stats.isFile()) {
-      let contents = fs.readFileSync(origFilePath, "utf8");
+      if (/\.(gif|jpe?g|tiff?|png|webp|bmp)$/i.test(file)) {
+        opt = { encoding: "binary" };
+      }
+
+      let contents = fs.readFileSync(origFilePath, opt);
 
       if (file === "package.json")
         contents = render(contents, { projectName: newProjectPath });
@@ -23,7 +28,7 @@ const createDirectoryContents = (templatePath, newProjectPath, route) => {
       if (file === ".npmignore") file = ".gitignore";
 
       const writePath = `${route}/${file}`;
-      fs.writeFileSync(writePath, contents, "utf8");
+      fs.writeFileSync(writePath, contents, opt);
     } else if (stats.isDirectory()) {
       fs.mkdirSync(`${route}/${file}`, { recursive: true });
 
