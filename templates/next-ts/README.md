@@ -34,5 +34,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 1. Next App V14
 2. Form validation with [react-hook-form](https://react-hook-form.com/)
-3. style use sass
-4. state management use useContext
+3. style with use sass

@@ -1,5 +1,5 @@
 {
-  "name": "<%= projectName %>",
+  "name": "next-ts",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -19,7 +19,6 @@
     "sass": "^1.75.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^14.2.3",
     "@trivago/prettier-plugin-sort-imports": "^4.3.0",
     "@types/node": "^20",
     "@types/react": "^18",
