@@ -1,5 +1,5 @@
 {
-  "name": "next-ts",
+  "name": "<%= projectName %>",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -25,7 +25,6 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
-    "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "typescript": "^5"
   }
