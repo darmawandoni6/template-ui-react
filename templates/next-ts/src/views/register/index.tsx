@@ -1,5 +1,7 @@
 'use client';
 
+import { useEffect } from 'react';
+
 import { type SubmitHandler, useForm } from 'react-hook-form';
 
 import Button from '@src/components/Button';
@@ -11,9 +13,14 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<TRegister>();
 
-  const onSubmit: SubmitHandler<TRegister> = (data) => console.log(data);
+  useEffect(() => {
+    reset();
+  }, []);
+
+  const onSubmit: SubmitHandler<TRegister> = (data) => null;
 
   return (
     <>

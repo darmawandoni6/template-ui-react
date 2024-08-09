@@ -1,34 +1,33 @@
 import type { Dispatch, ReactNode } from 'react';
 
+type Action = ReducerAction<TState>;
+
 type ReducerAction<T> = {
   [Key in keyof T]: {
     type: Key;
-    payload: T[Key];
+    payload: Partial<T[Key]>;
   };
 }[keyof T];
 
-export type TStateList = {
+type TStateList = {
+  loading: boolean;
   data: Post[];
   detail: Post | null;
   error: string;
 };
-export type TStateUser = {
+type TStateUser = {
   data: Users[];
   error: string;
   loading: boolean;
 };
 
-export type TState = {
+type TState = {
   show: string;
   list: TStateList;
   user: TStateUser;
 };
 
-export type TContext = {
+type TContext = {
   state: TState;
-  dispatch: Dispatch<ReducerAction<TState>>;
-};
-
-export type TContexProvider = {
-  children: ReactNode;
+  dispatch: (asyncAction: (dispatch: Dispatch<Action>) => Promise<void> | Action) => void;
 };

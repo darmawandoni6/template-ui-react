@@ -1,17 +1,32 @@
-import { list, listState } from './reducer/list';
-import { user, userState } from './reducer/user';
 import type { ReducerAction, TState } from './type';
 
 export const initialState: TState = {
   show: '',
-  list: listState,
-  user: userState,
+  list: {
+    data: [],
+    detail: null,
+    error: '',
+    loading: false,
+  },
+  user: {
+    data: [],
+    error: '',
+    loading: false,
+  },
 };
 
-export const rootReducer = (state = initialState, { type, payload }: ReducerAction<TState>) => {
-  return {
-    ...state,
-    list: list({ type: 'list', payload: payload as TState['list'] }),
-    user: user({ type: 'user', payload: payload as TState['user'] }),
-  };
+export const rootReducer = (state = initialState, action: ReducerAction<TState>) => {
+  switch (action.type) {
+    case 'list':
+      state.list = {
+        ...state.list,
+        ...action.payload,
+      };
+      return {
+        ...state,
+      };
+
+    default:
+      return state;
+  }
 };

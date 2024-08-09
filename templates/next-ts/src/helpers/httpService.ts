@@ -1,4 +1,5 @@
-import axios, { type AxiosError } from 'axios';
+import type { AxiosError } from 'axios';
+import axios from 'axios';
 
 import { env } from './config';
 
@@ -15,8 +16,16 @@ httpService.interceptors.request.use(
 
 httpService.interceptors.response.use(
   (response) => response,
-  (error: AxiosError) => {
-    return Promise.reject(error);
+  (error: AxiosError<{ message: string }>) => {
+    const { response, message } = error;
+
+    let msg = message;
+
+    if (response?.data?.message) {
+      msg = response.data.message;
+    }
+
+    return Promise.reject(msg);
   },
 );
 

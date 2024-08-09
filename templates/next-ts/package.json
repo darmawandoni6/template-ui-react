@@ -26,6 +26,10 @@
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
     "prettier": "^3.2.5",
-    "typescript": "^5"
+    "typescript": "^5",
+    "typescript-eslint": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

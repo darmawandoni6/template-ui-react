@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
-import ContexProvider from '@src/providers/ContexProvider';
+import Providers from '@src/providers';
 
 import './globals.scss';
 
-const poopins = Poppins({ weight: ['300', '400', '500', '600', '700', '800'], subsets: ['latin'] });
+const poppins = Poppins({ weight: ['300', '400', '500', '600', '700', '800'], subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,8 +28,8 @@ export default function RootLayout({
           referrerPolicy="no-referrer"
         />
       </head>
-      <body className={poopins.className}>
-        <ContexProvider>{children}</ContexProvider>
+      <body className={poppins.className}>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

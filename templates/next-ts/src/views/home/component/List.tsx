@@ -1,15 +1,13 @@
-'use client';
-
 import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 
 import Button from '@src/components/Button';
-import useProviders from '@src/providers/useProviders';
+import { useStateValue } from '@src/providers';
 
 const List = () => {
   const params = useParams();
   const router = useRouter();
-  const { list } = useProviders().state;
+  const { list } = useStateValue();
 
   if (params.id && list.detail) {
     const { detail } = list;
@@ -23,9 +21,10 @@ const List = () => {
       </>
     );
   }
+
   return (
     <ul>
-      {list.data.map((item) => (
+      {list.data!.map((item) => (
         <li key={item.id}>
           <Link href={`/posts/${item.id}`}>
             <h2>{item.title}</h2>
