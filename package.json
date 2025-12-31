@@ -1,6 +1,6 @@
 {
   "name": "template-ui-react",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A CLI tool to quickly scaffold React projects with a ready-to-use UI template and modern best practices.",
   "type": "module",
   "main": "index.js",
