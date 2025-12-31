@@ -1,11 +1,20 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Geist, Geist_Mono } from 'next/font/google';
 
-import Providers from '@src/providers';
+import clsx from 'clsx';
 
-import './globals.scss';
+import { StoreProvider } from '../store/provider';
+import './globals.css';
 
-const poppins = Poppins({ weight: ['300', '400', '500', '600', '700', '800'], subsets: ['latin'] });
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin'],
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
+});
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -19,17 +28,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-          integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-          crossOrigin="anonymous"
-          referrerPolicy="no-referrer"
-        />
-      </head>
-      <body className={poppins.className}>
-        <Providers>{children}</Providers>
+      <body className={clsx(geistSans.variable, geistMono.variable)}>
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );

@@ -1,9 +1,8 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
-import SectionI from './_components/section-I';
-import SectionII from './_components/section-II';
-import SectionIII from './_components/section-III';
+import SectionI from '../_components/section-I';
+import SectionII from '../_components/section-II';
+import SectionIII from '../_components/section-III';
 
 export default function Home() {
   return (
@@ -38,13 +37,15 @@ export default function Home() {
           <SectionIII />
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <Link
+          <a
             className="bg-foreground text-background flex h-12 w-full items-center justify-center gap-2 rounded-full px-5 transition-colors hover:bg-[#383838] md:w-[158px] dark:hover:bg-[#ccc]"
-            href="/test"
+            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={16} height={16} />
             Deploy Now
-          </Link>
+          </a>
           <a
             className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/8 px-5 transition-colors hover:border-transparent hover:bg-black/4 md:w-[158px] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"

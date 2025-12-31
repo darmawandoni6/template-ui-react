@@ -1,31 +1,58 @@
 {
   "name": "template-ui-react",
   "version": "1.4.3",
-  "description": "",
-  "main": "index.js",
+  "description": "A CLI tool to quickly scaffold React projects with a ready-to-use UI template and modern best practices.",
   "type": "module",
+  "main": "index.js",
   "bin": {
     "template-ui-react": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "knip": "knip"
   },
   "keywords": [
-    "template react",
     "react",
-    "ui kit react"
+    "react-cli",
+    "react-template",
+    "ui-template",
+    "ui-kit",
+    "frontend",
+    "boilerplate",
+    "scaffold",
+    "cli"
   ],
-  "author": "darmawandoni6@gmail.com",
-  "repository": {
-    "url": "http://github.com/darmawandoni6/template-ui-react"
+  "author": {
+    "name": "Darmawan Doni",
+    "email": "darmawandoni6@gmail.com"
   },
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darmawandoni6/template-ui-react.git"
+  },
+  "homepage": "https://github.com/darmawandoni6/template-ui-react",
+  "bugs": {
+    "url": "https://github.com/darmawandoni6/template-ui-react/issues"
+  },
+  "engines": {
+    "node": ">=24"
+  },
   "dependencies": {
-    "ejs": "^3.1.8",
-    "inquirer": "^9.1.4",
-    "validate-npm-package-name": "^5.0.0"
+    "chalk": "^5.4.1",
+    "commander": "^14.0.0",
+    "inquirer": "^12.6.3",
+    "ora": "^8.2.0",
+    "shelljs": "^0.10.0"
   },
   "devDependencies": {
-    "prettier": "^3.1.1"
+    "@eslint/js": "^9.39.2",
+    "@types/shelljs": "^0.8.16",
+    "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+    "eslint": "^9.39.2",
+    "globals": "^16.5.0",
+    "knip": "^5.78.0",
+    "prettier": "^3.6.2"
   }
 }
