@@ -8,8 +8,9 @@
     "template-ui-react": "./bin/index.js"
   },
   "scripts": {
+    "sync:ui": "node scripts/sync-ui.js",
     "lint": "eslint .",
-    "format": "prettier --write .",
+    "format": "prettier --write packages/ui && node scripts/sync-ui.js && prettier --write .",
     "knip": "knip"
   },
   "keywords": [
@@ -47,12 +48,25 @@
     "shelljs": "^0.10.0"
   },
   "devDependencies": {
+    "@base-ui/react": "^1.0.0-alpha.0",
     "@eslint/js": "^9.39.2",
-    "@types/shelljs": "^0.8.16",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
+    "@types/node": "^26.5.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@types/shelljs": "^0.8.16",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "eslint": "^9.39.2",
     "globals": "^16.5.0",
     "knip": "^5.78.0",
-    "prettier": "^3.6.2"
+    "lucide-react": "^0.475.0",
+    "prettier": "^3.5.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.1",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.7.3"
   }
 }

@@ -1,7 +1,6 @@
+import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
-
-import js from '@eslint/js';
 
 export default defineConfig([
   globalIgnores(['templates/**', 'node_modules/**', '.next/**', 'coverage/**', 'dist/**', 'build/**']),

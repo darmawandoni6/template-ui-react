@@ -36,6 +36,8 @@ template-ui-react/
 │   ├── copy-file.js              # Safe asynchronous recursive file copying engine
 │   ├── has-pkg-manager.js        # Global package manager detector (npm, yarn, pnpm)
 │   └── run-command.js            # Safe child_process spawn execution wrapper
+├── packages/                     # Shared canonical modules
+│   └── ui/                       # Single Source of Truth for @base-ui/react + Tailwind v4 components
 ├── templates/                    # Isolated boilerplate templates
 │   ├── next-ts/                  # Next.js App Router + TypeScript + Tailwind v4 + Base UI + Zustand
 │   ├── core-ui-next/             # Extended Next.js UI boilerplate
@@ -52,9 +54,16 @@ template-ui-react/
 
 ## 3. Engineering Principles & Quality Standards
 
+### UI Component Single Source of Truth (1x Maintenance Rule)
+
+- **Source of Truth (`packages/ui/`):**
+  - All `@base-ui/react` primitives and UI components are defined and maintained in `packages/ui/`.
+  - **Never** manually duplicate or fragment UI changes across templates. Always edit in `packages/ui/` first and run `yarn sync:ui` (`node scripts/sync-ui.js`).
+  - The synchronization engine selectively distributes only the components required by each template (e.g. core form/dialog primitives for `next-ts`, full component suite for `next-dashboard`) and generates tailored `index.ts` export files.
+
 ### Clean Architecture & Layer Separation
 
-When contributing to templates (such as `templates/next-ts`):
+When contributing to templates (such as `templates/next-ts` or `templates/next-dashboard`):
 
 - **UI Primitives (`src/components/ui/`):**
   - Use headless unstyled primitives (`@base-ui/react`) combined with `class-variance-authority` (CVA).

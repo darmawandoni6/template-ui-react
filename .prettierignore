@@ -4,4 +4,6 @@ templates
 dist
 build
 coverage
+.swc
+*.tsbuildinfo
 yarn.lock

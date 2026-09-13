@@ -62,10 +62,10 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-linear-to-b from-zinc-50 to-white px-4 py-12 text-foreground sm:px-6 lg:px-8">
+    <main className="text-foreground min-h-screen bg-linear-to-b from-zinc-50 to-white px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl space-y-12">
         {/* Header Hero Section */}
-        <div className="text-center space-y-4">
+        <div className="space-y-4 text-center">
           <div className="inline-flex items-center gap-2 rounded-full border bg-white px-3 py-1 text-sm shadow-xs">
             <Sparkles className="h-4 w-4 text-amber-500" />
             <span className="font-medium">Next.js App Router Boilerplate</span>
@@ -74,9 +74,9 @@ export default function HomePage() {
           <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
             Clean, Modern & Scalable Frontend Starter
           </h1>
-          <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
-            Built with Next.js App Router, Tailwind CSS v4, Base UI primitives, Zustand state management,
-            and type-safe Axios with Zod validation.
+          <p className="text-muted-foreground mx-auto max-w-2xl text-base sm:text-lg">
+            Built with Next.js App Router, Tailwind CSS v4, Base UI primitives, Zustand state management, and type-safe
+            Axios with Zod validation.
           </p>
         </div>
 
@@ -86,7 +86,7 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Database className="h-5 w-5 text-primary" />
+                <Database className="text-primary h-5 w-5" />
                 <CardTitle>Zustand State</CardTitle>
               </div>
               <CardDescription>SSR-safe reactive state management</CardDescription>
@@ -113,16 +113,14 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Layout className="h-5 w-5 text-primary" />
+                <Layout className="text-primary h-5 w-5" />
                 <CardTitle>Base UI Dialogs</CardTitle>
               </div>
               <CardDescription>Accessible headless modal components</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
               <Dialog>
-                <DialogTrigger render={<Button variant="outline" className="w-full" />}>
-                  Open Dialog
-                </DialogTrigger>
+                <DialogTrigger render={<Button variant="outline" className="w-full" />}>Open Dialog</DialogTrigger>
                 <DialogPopup>
                   <DialogHeader>
                     <DialogTitle>Base UI Dialog</DialogTitle>
@@ -130,7 +128,7 @@ export default function HomePage() {
                       This dialog is powered by @base-ui/react with zero accessibility compromises.
                     </DialogDescription>
                   </DialogHeader>
-                  <div className="py-2 text-sm text-muted-foreground">
+                  <div className="text-muted-foreground py-2 text-sm">
                     Seamless transitions, focus trapping, and keyboard navigation out of the box.
                   </div>
                   <DialogFooter>
@@ -163,7 +161,7 @@ export default function HomePage() {
           <Card>
             <CardHeader>
               <div className="flex items-center gap-2">
-                <Code2 className="h-5 w-5 text-primary" />
+                <Code2 className="text-primary h-5 w-5" />
                 <CardTitle>Form Elements</CardTitle>
               </div>
               <CardDescription>Accessible inputs with password toggle</CardDescription>
@@ -179,12 +177,7 @@ export default function HomePage() {
                   onChange={e => setPasswordInput(e.target.value)}
                 />
               </div>
-              <Checkbox
-                id="terms"
-                label="Accept terms and conditions"
-                checked={agreed}
-                onCheckedChange={setAgreed}
-              />
+              <Checkbox id="terms" label="Accept terms and conditions" checked={agreed} onCheckedChange={setAgreed} />
             </CardContent>
           </Card>
         </div>
@@ -207,24 +200,22 @@ export default function HomePage() {
           </CardHeader>
           <CardContent>
             {loadingPosts ? (
-              <div className="py-8 text-center text-sm text-muted-foreground animate-pulse">
+              <div className="text-muted-foreground animate-pulse py-8 text-center text-sm">
                 Fetching data from JSONPlaceholder API...
               </div>
             ) : (
               <div className="grid gap-3 sm:grid-cols-3">
                 {posts.map(post => (
-                  <div key={post.id} className="rounded-xl border bg-zinc-50/50 p-4 space-y-2">
-                    <span className="text-xs font-semibold text-muted-foreground uppercase">
-                      Post #{post.id}
-                    </span>
-                    <h4 className="text-sm font-semibold capitalize line-clamp-1">{post.title}</h4>
-                    <p className="text-xs text-muted-foreground line-clamp-2">{post.body}</p>
+                  <div key={post.id} className="space-y-2 rounded-xl border bg-zinc-50/50 p-4">
+                    <span className="text-muted-foreground text-xs font-semibold uppercase">Post #{post.id}</span>
+                    <h4 className="line-clamp-1 text-sm font-semibold capitalize">{post.title}</h4>
+                    <p className="text-muted-foreground line-clamp-2 text-xs">{post.body}</p>
                   </div>
                 ))}
               </div>
             )}
           </CardContent>
-          <CardFooter className="text-xs text-muted-foreground border-t pt-4">
+          <CardFooter className="text-muted-foreground border-t pt-4 text-xs">
             Validated using <code className="mx-1 rounded bg-zinc-100 px-1 py-0.5">postListSchema</code> in{' '}
             <code className="mx-1 rounded bg-zinc-100 px-1 py-0.5">@/validators/placeholder.schema.ts</code>
           </CardFooter>
