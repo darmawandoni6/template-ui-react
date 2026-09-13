@@ -40,7 +40,6 @@ template-ui-react/
 │   └── ui/                       # Single Source of Truth for @base-ui/react + Tailwind v4 components
 ├── templates/                    # Isolated boilerplate templates
 │   ├── next-ts/                  # Next.js App Router + TypeScript + Tailwind v4 + Base UI + Zustand
-│   ├── core-ui-next/             # Extended Next.js UI boilerplate
 │   └── next-dashboard/           # Next.js Dashboard starter template
 ├── package.json                  # Root package configuration for CLI distribution
 ├── eslint.config.js              # ESLint flat configuration for root CLI

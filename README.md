@@ -71,7 +71,6 @@ Next steps:
 | :---------------------------- | :----------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------- |
 | **`next-ts`** _(Recommended)_ | Next.js 15+ (App Router) • React 19 • Tailwind CSS v4 • Base UI • Zustand v5 • Zod • Axios • Jest                              | Fullstack web apps, SaaS, modern web portals                |
 | **`next-dashboard`**          | Next.js 15+ (App Router) • Tailwind CSS v4 • shadcn/ui (Sidebar-07) • Base UI • Zustand • Zod • React Hook Form • Axios • Jest | Enterprise admin dashboards, analytics portals & backoffice |
-| **`core-ui-next`**            | Next.js • React • CoreUI • SCSS • Modular Store                                                                                | Enterprise admin panels & complex management dashboards     |
 
 ---
 
