@@ -26,7 +26,7 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
           {...props}
         >
           <BaseCheckbox.Indicator className="flex items-center justify-center text-current">
-            <Check className="h-3.5 w-3.5 stroke-[3]" />
+            <Check className="h-3.5 w-3.5 stroke-3" />
           </BaseCheckbox.Indicator>
         </BaseCheckbox.Root>
         {(label || description) && (

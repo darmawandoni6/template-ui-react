@@ -75,6 +75,16 @@ Next steps:
 
 ---
 
+## 🎨 Shared UI Architecture (`packages/ui`)
+
+All `@base-ui/react` + Tailwind CSS v4 components across templates are maintained in **`packages/ui/`** following the **1x Maintenance Rule**:
+
+- **Centralized Source of Truth:** Edit components once in `packages/ui/`.
+- **Selective Sync (`yarn sync:ui`):** Distributes only the components required by each template (`next-ts` gets core primitives, `next-dashboard` gets the full component suite).
+- **Zero Configuration Drift:** Automated synchronization ensures consistent accessibility, keyboard navigation, and design tokens across all boilerplate templates.
+
+---
+
 ## 🛠️ CLI Commands & Options
 
 | Command / Option                       | Description                                                |

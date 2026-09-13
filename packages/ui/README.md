@@ -10,34 +10,45 @@ This directory is the **Single Source of Truth** for all headless `@base-ui/reac
 
 ### Synchronizing Changes to Templates
 
-To distribute updates to all templates, run:
+The custom synchronization engine (`scripts/sync-ui.js`) selectively distributes only the components required by each template and generates tailored `index.ts` exports:
 
 ```bash
-# From repository root
+# From repository root:
 yarn sync:ui
+
+# Or format and sync in one step:
+yarn format
 ```
 
 ---
 
-## 📦 Component Registry
+## 📦 Component Registry & Template Distribution
 
-| Component           | Primitive                      | Description                                      |
-| :------------------ | :----------------------------- | :----------------------------------------------- |
-| `alert-dialog.tsx`  | `@base-ui/react/dialog`        | Modal confirmation dialog                        |
-| `avatar.tsx`        | `@base-ui/react/avatar`        | User profile avatar with fallback                |
-| `badge.tsx`         | `cva`                          | Semantic status badges                           |
-| `breadcrumb.tsx`    | Accessible Nav                 | Breadcrumb navigation with `render` prop         |
-| `button.tsx`        | `@base-ui/react/button`        | Button with `loading` state & full size variants |
-| `card.tsx`          | Semantic HTML                  | Card layout with header, content, footer         |
-| `checkbox.tsx`      | `@base-ui/react/checkbox`      | Accessible custom checkbox                       |
-| `dialog.tsx`        | `@base-ui/react/dialog`        | Modal dialog with overlay                        |
-| `dropdown-menu.tsx` | `@base-ui/react/menu`          | Dropdown menu with keyboard navigation           |
-| `error-form.tsx`    | Semantic HTML                  | Form validation error feedback                   |
-| `input.tsx`         | Semantic HTML                  | Controlled input with password visibility toggle |
-| `label.tsx`         | Semantic HTML                  | Native accessible label                          |
-| `separator.tsx`     | `@base-ui/react/separator`     | Visual horizontal/vertical separator             |
-| `sheet.tsx`         | `@base-ui/react/dialog`        | Sliding side drawer panel                        |
-| `sidebar.tsx`       | `@base-ui/react` + `useRender` | Collapsible sidebar system (Sidebar-07)          |
-| `skeleton.tsx`      | Semantic HTML                  | Animated placeholder skeleton                    |
-| `table.tsx`         | Semantic HTML                  | Accessible data table                            |
-| `tooltip.tsx`       | `@base-ui/react/tooltip`       | Hover/focus tooltip with delay                   |
+| Component           | Base Primitive                 | Features / Styling Conventions                     | `next-ts` | `next-dashboard` |
+| :------------------ | :----------------------------- | :------------------------------------------------- | :-------: | :--------------: |
+| `alert-dialog.tsx`  | `@base-ui/react/dialog`        | Confirmation modal, focus trap, centered translate |     ✓     |        ✓         |
+| `avatar.tsx`        | `@base-ui/react/avatar`        | User profile avatar with initials fallback         |     -     |        ✓         |
+| `badge.tsx`         | `class-variance-authority`     | Semantic status badges (default, secondary, etc.)  |     ✓     |        ✓         |
+| `breadcrumb.tsx`    | Accessible Nav                 | Breadcrumb nav with `render` prop & wrapping       |     -     |        ✓         |
+| `button.tsx`        | `@base-ui/react/button`        | Button with `loading` spinner & size variants      |     ✓     |        ✓         |
+| `card.tsx`          | Semantic HTML                  | Card layout with header, title, content, footer    |     ✓     |        ✓         |
+| `checkbox.tsx`      | `@base-ui/react/checkbox`      | Accessible checkbox with `data-checked:` variant   |     ✓     |        ✓         |
+| `dialog.tsx`        | `@base-ui/react/dialog`        | Accessible modal dialog with backdrop blur         |     ✓     |        ✓         |
+| `dropdown-menu.tsx` | `@base-ui/react/menu`          | Dropdown menu with positioning and keyboard nav    |     -     |        ✓         |
+| `error-form.tsx`    | Semantic HTML                  | Form validation error display helper               |     ✓     |        ✓         |
+| `input.tsx`         | Semantic HTML                  | Controlled input with password visibility toggle   |     ✓     |        ✓         |
+| `label.tsx`         | Semantic HTML                  | Accessible form label with CVA variants            |     ✓     |        ✓         |
+| `separator.tsx`     | `@base-ui/react/separator`     | Canonical `h-px` / `w-px` decorative divider       |     -     |        ✓         |
+| `sheet.tsx`         | `@base-ui/react/dialog`        | Sliding drawer panel with canonical transitions    |     -     |        ✓         |
+| `sidebar.tsx`       | `@base-ui/react` + `useRender` | Sidebar-07 system with collapsible icon/offcanvas  |     -     |        ✓         |
+| `skeleton.tsx`      | Semantic HTML                  | Animated pulse loading placeholder                 |     -     |        ✓         |
+| `table.tsx`         | Semantic HTML                  | Accessible data table with `has-[[role=checkbox]]` |     -     |        ✓         |
+| `tooltip.tsx`       | `@base-ui/react/tooltip`       | Hover/focus tooltip with delay and popup arrow     |     -     |        ✓         |
+
+---
+
+## 🎯 Tailwind CSS v4 & Base UI Standards
+
+- **State Selectors:** Always use native `@base-ui/react` attribute variants (e.g. `data-checked:`, `data-open:`, `data-closed:`, `data-disabled:`, `data-highlighted:`).
+- **Canonical Scale:** Avoid arbitrary units where standard scale exists (e.g. `translate-y-10`, `stroke-3`, `h-px`, `min-w-32`, `rounded-xs`).
+- **Zero Conflict Rule:** Never mix conflicting axis properties in the same modifier block (e.g. `my-2 mr-2 ml-0` instead of `m-2 ml-0`).

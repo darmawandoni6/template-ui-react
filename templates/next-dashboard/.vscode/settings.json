@@ -27,5 +27,6 @@
   },
   "[markdown]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "tailwindCSS.lint.cssConflict": "ignore"
 }
