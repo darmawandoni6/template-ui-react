@@ -17,10 +17,17 @@
 
 ## 🚀 Quick Start
 
-You can generate a new project instantly using `npx` (no global installation required):
+You can generate a new project instantly without global installation (recommended):
 
 ```bash
-npx template-ui-react new my-app
+# Using npx (npm)
+npx template-ui-react@latest new my-app
+
+# Using pnpm
+pnpm dlx template-ui-react@latest new my-app
+
+# Using bun
+bunx template-ui-react@latest new my-app
 ```
 
 Or install globally via your preferred package manager:
@@ -34,6 +41,9 @@ yarn global add template-ui-react
 
 # Using pnpm
 pnpm add -g template-ui-react
+
+# Using bun
+bun add -g template-ui-react
 ```
 
 Then create a new project anytime:
