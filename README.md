@@ -76,8 +76,9 @@ Next steps:
 
 ## 🎨 Shared UI Architecture (`packages/ui`)
 
-All `@base-ui/react` + Tailwind CSS v4 components across templates are maintained in **`packages/ui/`** following the **1x Maintenance Rule**:
+All `@base-ui/react` + Tailwind CSS v4 components across templates are maintained in **`packages/ui/`** following the **1x Maintenance Rule** and official [shadcn/ui architecture & installation standards](https://ui.shadcn.com/docs/installation):
 
+- **UI Framework Documentation:** [shadcn/ui Installation Guide](https://ui.shadcn.com/docs/installation) • [Base UI Primitives](https://base-ui.com) • [Tailwind CSS v4](https://tailwindcss.com/docs)
 - **Centralized Source of Truth:** Edit components once in `packages/ui/`.
 - **Selective Sync (`yarn sync:ui`):** Distributes only the components required by each template (`next-ts` gets core primitives, `next-dashboard` gets the full component suite).
 - **Zero Configuration Drift:** Automated synchronization ensures consistent accessibility, keyboard navigation, and design tokens across all boilerplate templates.

@@ -55,6 +55,10 @@ template-ui-react/
 
 ### UI Component Single Source of Truth (1x Maintenance Rule)
 
+- **UI Framework & Architecture Reference:**
+  - Official shadcn/ui Installation & Architecture: [https://ui.shadcn.com/docs/installation](https://ui.shadcn.com/docs/installation)
+  - Headless Base UI Primitives: [https://base-ui.com](https://base-ui.com)
+  - Tailwind CSS v4 Documentation: [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
 - **Source of Truth (`packages/ui/`):**
   - All `@base-ui/react` primitives and UI components are defined and maintained in `packages/ui/`.
   - **Never** manually duplicate or fragment UI changes across templates. Always edit in `packages/ui/` first and run `yarn sync:ui` (`node scripts/sync-ui.js`).

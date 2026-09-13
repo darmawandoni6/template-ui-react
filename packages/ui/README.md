@@ -4,6 +4,16 @@ This directory is the **Single Source of Truth** for all headless `@base-ui/reac
 
 ---
 
+## 📚 UI Framework Documentation & References
+
+The UI components in this package are designed following the modern **shadcn/ui** architecture and headless primitives:
+
+- **shadcn/ui Framework & Installation Guide:** [https://ui.shadcn.com/docs/installation](https://ui.shadcn.com/docs/installation)
+- **Base UI Component Primitives:** [https://base-ui.com](https://base-ui.com)
+- **Tailwind CSS v4 Documentation:** [https://tailwindcss.com/docs](https://tailwindcss.com/docs)
+
+---
+
 ## ⚡ 1x Maintenance Rule
 
 > **CRITICAL:** Whenever you add, fix, or update any UI component, **edit it here in `packages/ui/` ONLY**.

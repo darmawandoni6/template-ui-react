@@ -5,6 +5,7 @@ A modern, scalable Next.js Dashboard boilerplate modeled after **shadcn/ui v4.21
 ## 🚀 Tech Stack
 
 - **Framework:** [Next.js 15+ (App Router)](https://nextjs.org) with React 19
+- **UI Architecture:** [shadcn/ui Installation & Standards](https://ui.shadcn.com/docs/installation)
 - **Layout & Design:** [shadcn/ui Sidebar-07 (Aria Block)](https://github.com/shadcn-ui/ui/tree/shadcn%404.21.0/apps/v4/registry/bases/aria/blocks/sidebar-07)
 - **Auth Blocks:** [Login-01](https://github.com/shadcn-ui/ui/tree/shadcn%404.21.0/apps/v4/registry/bases/aria/blocks/login-01) & [Signup-01](https://github.com/shadcn-ui/ui/tree/shadcn%404.21.0/apps/v4/registry/bases/aria/blocks/signup-01)
 - **UI Primitives:** [@base-ui/react](https://base-ui.com) (Unstyled headless primitives)

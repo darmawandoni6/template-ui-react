@@ -6,6 +6,7 @@ A modern, clean-code, and scalable starter boilerplate for Next.js applications.
 
 - **Framework:** [Next.js 15+ (App Router)](https://nextjs.org) with React 19
 - **Styling:** [Tailwind CSS v4](https://tailwindcss.com) with CSS Variables & `@theme`
+- **UI Architecture:** [shadcn/ui Installation & Standards](https://ui.shadcn.com/docs/installation)
 - **UI Primitives:** [@base-ui/react](https://base-ui.com) (Unstyled headless components)
 - **Component Variants:** [class-variance-authority (CVA)](https://cva.style)
 - **State Management:** [Zustand v5](https://zustand-demo.pmnd.rs) (SSR-safe modular stores)
