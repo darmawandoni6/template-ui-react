@@ -1,0 +1,7 @@
+node_modules
+templates
+.next
+dist
+build
+coverage
+yarn.lock

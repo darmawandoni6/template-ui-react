@@ -1,7 +1,19 @@
-import { memo } from 'react';
+import React, { memo } from 'react';
 
-const ErrorForm: React.FC<{ errors?: string }> = ({ errors }) => {
-  if (errors) return <p className="text-sm text-red-500 capitalize">{errors}</p>;
+import { cn } from '@/lib/utils';
+
+export interface ErrorFormProps extends React.HTMLAttributes<HTMLParagraphElement> {
+  error?: string | null;
+}
+
+const ErrorForm: React.FC<ErrorFormProps> = ({ error, className, ...props }) => {
+  if (!error) return null;
+
+  return (
+    <p className={cn('text-xs font-medium text-destructive mt-1', className)} {...props}>
+      {error}
+    </p>
+  );
 };
 
 export default memo(ErrorForm);

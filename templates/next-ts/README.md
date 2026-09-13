@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js App Router Starter Template
 
-## Getting Started
+A modern, clean-code, and scalable starter boilerplate for Next.js applications.
 
-First, run the development server:
+## 🚀 Tech Stack
+
+- **Framework:** [Next.js 15+ (App Router)](https://nextjs.org) with React 19
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com) with CSS Variables & `@theme`
+- **UI Primitives:** [@base-ui/react](https://base-ui.com) (Unstyled headless components)
+- **Component Variants:** [class-variance-authority (CVA)](https://cva.style)
+- **State Management:** [Zustand v5](https://zustand-demo.pmnd.rs) (SSR-safe modular stores)
+- **Form & Runtime Validation:** [Zod](https://zod.dev)
+- **HTTP Client:** [Axios](https://axios-http.com) with typed interceptors and error handling
+- **Testing:** [Jest](https://jestjs.io) with [@testing-library/react](https://testing-library.com)
+- **Icons:** [Lucide React](https://lucide.dev)
+- **Formatting & Linting:** ESLint Flat Config + Prettier + `prettier-plugin-tailwindcss`
+
+---
+
+## 📁 Directory Structure
+
+```
+src/
+├── app/                  # Next.js App Router (pages, layouts, route handlers)
+│   ├── api/placeholder/  # Example API route handler
+│   ├── globals.css       # Tailwind v4 theme & base CSS
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Component showcase & demo page
+├── components/
+│   ├── ui/               # Reusable Base UI + CVA primitives (button, dialog, etc.)
+│   └── common/           # Shared compound components
+├── hooks/                # Custom React hooks (useDebounce, useDisclosure)
+├── lib/                  # Core singletons (axios, utils, env schema)
+├── services/             # API client & repository service layer
+├── stores/               # Zustand stores
+├── types/                # TypeScript interfaces & API types
+└── validators/           # Zod validation schemas
+```
+
+---
+
+## 🛠️ Getting Started
+
+First, install dependencies:
 
 ```bash
-npm run dev
-# or
+# Using yarn
+yarn install
+
+# Using npm
+npm install
+
+# Using pnpm
+pnpm install
+```
+
+Run the development server:
+
+```bash
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🧪 Testing & Quality
 
-## Learn More
+```bash
+# Run unit tests
+yarn test
 
-To learn more about Next.js, take a look at the following resources:
+# Run tests in watch mode
+yarn test:watch
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Run linter
+yarn lint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Build for production
+yarn build
+```

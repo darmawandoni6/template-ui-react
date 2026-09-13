@@ -1,35 +1,24 @@
-import nextVitals from 'eslint-config-next/core-web-vitals';
-import nextTs from 'eslint-config-next/typescript';
-import { defineConfig, globalIgnores } from 'eslint/config';
-import globals from 'globals';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
-
-import tsParserPkg from '@typescript-eslint/parser';
+import { FlatCompat } from '@eslint/eslintrc';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
-export default defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
+const compat = new FlatCompat({
+  baseDirectory: __dirname,
+});
+
+const eslintConfig = [
   {
-    files: ['./src/**/*.{ts,tsx}'],
-    languageOptions: {
-      globals: globals.browser,
-      parser: tsParserPkg, // ✅ use the parser object, not string
-      parserOptions: {
-        project: './tsconfig.json',
-        tsconfigRootDir: __dirname,
-        ecmaVersion: 2020,
-        sourceType: 'module',
-      },
-    },
+    ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts', 'coverage/**', 'node_modules/**'],
+  },
+  ...compat.extends('next/core-web-vitals', 'next/typescript'),
+  {
+    files: ['src/**/*.{ts,tsx}', '__tests__/**/*.{ts,tsx}'],
     rules: {
-      'no-console': 'error',
-      'react-refresh/only-export-components': 'off',
-      '@typescript-eslint/consistent-type-definitions': 'error',
+      'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
+      '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {
@@ -37,6 +26,15 @@ export default defineConfig([
           fixStyle: 'inline-type-imports',
         },
       ],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+        },
+      ],
     },
   },
-]);
+];
+
+export default eslintConfig;

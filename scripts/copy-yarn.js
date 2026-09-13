@@ -6,11 +6,11 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const copyYarn = async template => {
   const file = 'yarn.lock';
-
   const src = path.join(__dirname, `../templates/${template}/${file}`);
   const dest = path.join(process.cwd(), file);
 
-  fs.mkdirSync(path.dirname(dest), { recursive: true });
-  const content = fs.readFileSync(src, 'utf-8');
-  fs.writeFileSync(dest, content, 'utf-8');
+  if (fs.existsSync(src)) {
+    fs.mkdirSync(path.dirname(dest), { recursive: true });
+    fs.copyFileSync(src, dest);
+  }
 };
