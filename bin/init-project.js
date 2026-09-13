@@ -25,12 +25,48 @@ function getAvailableTemplates() {
   });
 }
 
-async function askProjectDetails(projectName) {
+async function askProjectDetails(projectName, options = {}) {
   const choices = getAvailableTemplates();
 
   if (choices.length === 0) {
     process.stdout.write(chalk.red('✖ ERROR : No templates found in repository.') + '\n');
     process.exit(1);
+  }
+
+  // Validate template option if provided
+  if (options.template && !choices.includes(options.template)) {
+    process.stdout.write(
+      chalk.red(`✖ ERROR : Template "${options.template}" not found. Available templates: ${choices.join(', ')}`) +
+        '\n',
+    );
+    process.exit(1);
+  }
+
+  // Validate package manager option if provided
+  const validPms = ['yarn', 'pnpm', 'npm'];
+  if (options.packageManager && !validPms.includes(options.packageManager)) {
+    process.stdout.write(
+      chalk.red(`✖ ERROR : Invalid package manager "${options.packageManager}". Supported: ${validPms.join(', ')}`) +
+        '\n',
+    );
+    process.exit(1);
+  }
+
+  // Check if non-interactive mode should be used
+  const isNonInteractive =
+    Boolean(options.yes) || Boolean(options.template && (options.packageManager || options.install === false));
+
+  if (isNonInteractive) {
+    const selectedTemplate = options.template || (choices.includes('next-ts') ? 'next-ts' : choices[0]);
+    const shouldInstall = options.install !== false;
+    const packageManager = options.packageManager || 'yarn';
+
+    return {
+      projectName,
+      'project-choice': selectedTemplate,
+      shouldInstall,
+      packageManager,
+    };
   }
 
   try {
@@ -48,34 +84,51 @@ async function askProjectDetails(projectName) {
       process.exit(0);
     }
 
-    const answers_II = await inquirer.prompt([
-      {
+    const prompts = [];
+
+    if (!options.template) {
+      prompts.push({
         type: 'list',
         name: 'project-choice',
         message: 'What project template would you like to generate?',
         choices,
         default: choices.includes('next-ts') ? 'next-ts' : choices[0],
-      },
-      {
+      });
+    }
+
+    if (options.install === undefined) {
+      prompts.push({
         type: 'confirm',
         name: 'shouldInstall',
         message: 'Do you want to install dependencies now?',
         default: true,
-      },
-      {
+      });
+    }
+
+    if (!options.packageManager) {
+      prompts.push({
         type: 'list',
         name: 'packageManager',
         message: 'Which package manager do you want to use?',
-        choices: ['yarn', 'pnpm', 'npm'],
+        choices: validPms,
         default: 'yarn',
-        when: answers => answers.shouldInstall === true,
-      },
-    ]);
+        when: answers => (options.install !== undefined ? options.install : answers.shouldInstall) === true,
+      });
+    }
 
-    return { projectName, ...answers_II };
+    const answers_II = prompts.length > 0 ? await inquirer.prompt(prompts) : {};
+
+    return {
+      projectName,
+      'project-choice': options.template || answers_II['project-choice'],
+      shouldInstall: options.install !== undefined ? options.install : answers_II.shouldInstall,
+      packageManager: options.packageManager || answers_II.packageManager || 'yarn',
+    };
   } catch (error) {
     if (error.isTtyError) {
-      process.stdout.write('Prompt cannot be displayed on this terminal.\n');
+      process.stdout.write(
+        chalk.yellow('Prompt cannot be displayed on non-interactive terminal. Use flags (e.g. -t <template> -y).\n'),
+      );
     } else {
       process.stdout.write('\nProgram stopped by user\n');
     }
@@ -83,7 +136,7 @@ async function askProjectDetails(projectName) {
   }
 }
 
-export async function initProject(projectName, title) {
+export async function initProject(projectName, title, options = {}) {
   const targetDir = path.resolve(process.cwd(), projectName);
 
   if (fs.existsSync(targetDir)) {
@@ -91,7 +144,7 @@ export async function initProject(projectName, title) {
     process.exit(1);
   }
 
-  const details = await askProjectDetails(projectName);
+  const details = await askProjectDetails(projectName, options);
 
   console.log(chalk.green('\nInstallation in progress... ☕\n'));
   const spinner = ora();

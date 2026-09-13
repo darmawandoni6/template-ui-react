@@ -13,7 +13,11 @@ const packageJson = JSON.parse(fs.readFileSync(new URL('../package.json', import
 program
   .command('new <project-name>')
   .description('Create a new template project')
-  .action(projectName => initProject(projectName, packageJson.name));
+  .option('-t, --template <template-name>', 'Specify project template (e.g. next-ts, next-dashboard)')
+  .option('--pm, --package-manager <package-manager>', 'Specify package manager (yarn, pnpm, npm)')
+  .option('-y, --yes', 'Skip interactive prompts and use default settings')
+  .option('--no-install', 'Skip installing dependencies')
+  .action((projectName, options) => initProject(projectName, packageJson.name, options));
 
 // information cli
 program.option('-i, --info', `Display information about ${packageJson.name}`).action(() => actionInfo(packageJson));

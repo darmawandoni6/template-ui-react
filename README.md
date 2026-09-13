@@ -97,13 +97,34 @@ All `@base-ui/react` + Tailwind CSS v4 components across templates are maintaine
 
 ## 🛠️ CLI Commands & Options
 
-| Command / Option                       | Description                                                |
-| :------------------------------------- | :--------------------------------------------------------- |
-| `template-ui-react new <project-name>` | Create and initialize a new project interactively          |
-| `template-ui-react -i, --info`         | Display environment diagnostics (OS, Node.js, CLI version) |
-| `template-ui-react update`             | Check and update the CLI to the latest version             |
-| `template-ui-react -v, --version`      | Output the current version of the CLI                      |
-| `template-ui-react -h, --help`         | Display help and list all available commands               |
+### Commands
+
+| Command / Option                  | Description                                                |
+| :-------------------------------- | :--------------------------------------------------------- |
+| `template-ui-react new <project>` | Create and initialize a new project                        |
+| `template-ui-react -i, --info`    | Display environment diagnostics (OS, Node.js, CLI version) |
+| `template-ui-react update`        | Check and update the CLI to the latest version             |
+| `template-ui-react -v, --version` | Output the current version of the CLI                      |
+| `template-ui-react -h, --help`    | Display help and list all available commands               |
+
+### `new` Command Options (AI & CI/CD Non-Interactive Support)
+
+| Flag                                        | Description                                                           |
+| :------------------------------------------ | :-------------------------------------------------------------------- |
+| `-t, --template <name>`                     | Select template directly (`next-ts` or `next-dashboard`)              |
+| `--pm, --package-manager <yarn\|pnpm\|npm>` | Select package manager (`yarn`, `pnpm`, or `npm`)                     |
+| `-y, --yes`                                 | Skip interactive prompts and use default settings (`next-ts`, `yarn`) |
+| `--no-install`                              | Skip automatic dependency installation                                |
+
+#### Non-Interactive One-Liner Examples (for AI Agents & CI/CD):
+
+```bash
+# Generate next-dashboard using yarn in non-interactive mode
+npx template-ui-react@latest new my-admin-app -t next-dashboard --pm yarn -y
+
+# Generate next-ts without auto-installing dependencies
+npx template-ui-react@latest new my-app -t next-ts --no-install
+```
 
 ---
 
